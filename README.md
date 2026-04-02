@@ -12,6 +12,20 @@ Yesterday you set up a cluster. Today you actually deploy something. You will le
 
 Every Kubernetes resource is defined using a YAML manifest with four required top-level fields:
 
+<img width="617" height="256" alt="Image" src="https://github.com/user-attachments/assets/5591ee35-9451-453a-a622-e23f87f9ce8e" />
+
+- apiVersion — tells Kubernetes which API group to use. For Pods, it is v1.
+- kind — the resource type. Today it is Pod. Later you will use Deployment, Service, etc.
+- metadata — the identity of your resource. name is required. labels are key-value pairs used for organization and selection.
+- spec — the desired state. For a Pod, this means which containers to run, which images, which ports, etc.
+
+## Challenge Tasks
+
+## Task 1: Create Your First Pod (Nginx)
+
+Create a file called nginx-pod.yaml
+
+
 
 
 
