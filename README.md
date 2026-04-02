@@ -40,15 +40,21 @@ kubectl get pods -o wide
 
 <img width="977" height="136" alt="Image" src="https://github.com/user-attachments/assets/ce86673f-681f-4599-80d5-5765c8bd87c9" />
 
+# Detailed info about the pod
 kubectl describe pod nginx-pod
 
 <img width="584" height="197" alt="Image" src="https://github.com/user-attachments/assets/4512b65f-fad5-4e52-bc7b-c49b0d0edb52" />
 
+# Read the logs
 kubectl logs nginx-pod
 
 <img width="966" height="313" alt="Image" src="https://github.com/user-attachments/assets/aa49e5e6-ba61-4dc7-8686-bab435e02a39" />
 
+
+# Get a shell inside the container
 kubectl exec -it nginx-pod -- /bin/bash
+
+# Inside the container, run:
 curl localhost:80
 exit
 
@@ -78,12 +84,12 @@ kubectl logs busybox-pod
 
 You have been using the declarative approach (writing YAML, then kubectl apply). Kubernetes also supports imperative commands:
 
+# Create a pod without a YAML file
 kubectl run redis-pod --image=redis:latest
-
 <img width="866" height="47" alt="Image" src="https://github.com/user-attachments/assets/e0f7ef6b-0258-4675-9efa-c9d52c65cbd2" />
 
+# Check it
 kubectl get pods
-
 <img width="763" height="117" alt="Image" src="https://github.com/user-attachments/assets/8d1ff29f-b7ba-42f6-b255-216420825cee" />
 
 kubectl get pod redis-pod -o yaml
@@ -98,8 +104,10 @@ kubectl run test-pod --image=nginx --dry-run=client -o yaml
 
 Before applying a manifest, you can validate it:
 
+# Check if the YAML is valid without actually creating the resource
 kubectl apply -f nginx-pod.yaml --dry-run=client
 
+# Validate against the cluster's API (server-side validation)
 kubectl apply -f nginx-pod.yaml --dry-run=server
 
 <img width="929" height="221" alt="Image" src="https://github.com/user-attachments/assets/082ed27b-076f-4ae0-ba80-f54afe6d4aa7" />
@@ -108,23 +116,27 @@ kubectl apply -f nginx-pod.yaml --dry-run=server
 
 Labels are how Kubernetes organizes and selects resources. You added labels in your manifests — now use them:
 
+# List all pods with their labels
 kubectl get pods --show-labels
 
 <img width="870" height="123" alt="Image" src="https://github.com/user-attachments/assets/b8e94e74-9823-433c-92b2-24e78a7e857b" />
 
+# Filter pods by label
 kubectl get pods -l app=nginx
 kubectl get pods -l environment=dev
 
 <img width="775" height="122" alt="Image" src="https://github.com/user-attachments/assets/b9ccbf94-6624-4b1e-9357-82e10d1db8f4" />
 
+# Add a label to an existing pod
 kubectl label pod nginx-pod environment=production
-
 <img width="893" height="43" alt="Image" src="https://github.com/user-attachments/assets/d76df07f-a405-449e-98f4-7317fc392a65" />
 
+# Verify
 kubectl get pods --show-labels
 
 <img width="898" height="135" alt="Image" src="https://github.com/user-attachments/assets/796222b5-4c63-4479-bb0f-4e391c24313f" />
 
+# Remove a label
 kubectl label pod nginx-pod environment-
 
 <img width="752" height="43" alt="Image" src="https://github.com/user-attachments/assets/dc5279a2-8529-46a4-bc55-f5c5e4b2b6de" />
@@ -135,7 +147,9 @@ Delete all the pods you created:
 
 # Delete by name
 kubectl delete pod nginx-pod
+
 kubectl delete pod busybox-pod
+
 kubectl delete pod redis-pod
 
 # Or delete using the manifest file
@@ -143,6 +157,8 @@ kubectl delete -f nginx-pod.yaml
 
 # Verify everything is gone
 kubectl get pods
+
+<img width="813" height="46" alt="Image" src="https://github.com/user-attachments/assets/72ffb02e-48b7-4f05-b103-0b05af537e5b" />
 
 
 
