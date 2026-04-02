@@ -25,6 +25,12 @@ Every Kubernetes resource is defined using a YAML manifest with four required to
 
 Create a file called nginx-pod.yaml
 
+<img width="664" height="261" alt="Image" src="https://github.com/user-attachments/assets/f1b6a152-e618-49be-8033-fa0c0a0b8613" />
+
+Apply it:
+
+kubectl apply -f nginx-pod.yaml
+
 
 
 
