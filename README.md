@@ -98,7 +98,15 @@ kubectl run test-pod --image=nginx --dry-run=client -o yaml
 
 Before applying a manifest, you can validate it:
 
+kubectl apply -f nginx-pod.yaml --dry-run=client
 
+kubectl apply -f nginx-pod.yaml --dry-run=server
+
+<img width="929" height="221" alt="Image" src="https://github.com/user-attachments/assets/082ed27b-076f-4ae0-ba80-f54afe6d4aa7" />
+
+## Task 5: Pod Labels and Filtering
+
+Labels are how Kubernetes organizes and selects resources. You added labels in your manifests — now use them:
 
 
 
