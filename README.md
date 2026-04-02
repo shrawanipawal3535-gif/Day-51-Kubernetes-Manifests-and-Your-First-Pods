@@ -78,6 +78,25 @@ kubectl logs busybox-pod
 
 You have been using the declarative approach (writing YAML, then kubectl apply). Kubernetes also supports imperative commands:
 
+kubectl run redis-pod --image=redis:latest
+
+<img width="866" height="47" alt="Image" src="https://github.com/user-attachments/assets/e0f7ef6b-0258-4675-9efa-c9d52c65cbd2" />
+
+kubectl get pods
+
+<img width="763" height="117" alt="Image" src="https://github.com/user-attachments/assets/8d1ff29f-b7ba-42f6-b255-216420825cee" />
+
+kubectl get pod redis-pod -o yaml
+
+<img width="882" height="535" alt="Image" src="https://github.com/user-attachments/assets/8184d60e-85df-430c-b3d3-8c0fc4d44a50" />
+
+kubectl run test-pod --image=nginx --dry-run=client -o yaml
+
+<img width="939" height="355" alt="Image" src="https://github.com/user-attachments/assets/4d43bfcb-fb04-4e75-85b9-566f356cc6cd" />
+
+## Task 4: Validate Before Applying
+
+Before applying a manifest, you can validate it:
 
 
 
