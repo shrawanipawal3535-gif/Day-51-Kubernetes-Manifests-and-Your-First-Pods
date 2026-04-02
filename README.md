@@ -108,6 +108,41 @@ kubectl apply -f nginx-pod.yaml --dry-run=server
 
 Labels are how Kubernetes organizes and selects resources. You added labels in your manifests — now use them:
 
+kubectl get pods --show-labels
+
+<img width="870" height="123" alt="Image" src="https://github.com/user-attachments/assets/b8e94e74-9823-433c-92b2-24e78a7e857b" />
+
+kubectl get pods -l app=nginx
+kubectl get pods -l environment=dev
+
+<img width="775" height="122" alt="Image" src="https://github.com/user-attachments/assets/b9ccbf94-6624-4b1e-9357-82e10d1db8f4" />
+
+kubectl label pod nginx-pod environment=production
+
+<img width="893" height="43" alt="Image" src="https://github.com/user-attachments/assets/d76df07f-a405-449e-98f4-7317fc392a65" />
+
+kubectl get pods --show-labels
+
+<img width="898" height="135" alt="Image" src="https://github.com/user-attachments/assets/796222b5-4c63-4479-bb0f-4e391c24313f" />
+
+kubectl label pod nginx-pod environment-
+
+<img width="752" height="43" alt="Image" src="https://github.com/user-attachments/assets/dc5279a2-8529-46a4-bc55-f5c5e4b2b6de" />
+
+## Task 6: Clean Up
+
+Delete all the pods you created:
+
+# Delete by name
+kubectl delete pod nginx-pod
+kubectl delete pod busybox-pod
+kubectl delete pod redis-pod
+
+# Or delete using the manifest file
+kubectl delete -f nginx-pod.yaml
+
+# Verify everything is gone
+kubectl get pods
 
 
 
