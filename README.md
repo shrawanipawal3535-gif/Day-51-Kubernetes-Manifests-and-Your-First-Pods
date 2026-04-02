@@ -57,11 +57,13 @@ exit
 ## Task 2: Create a Custom Pod (BusyBox)
 
 Write a new manifest busybox-pod.yaml from scratch (do not copy-paste the nginx one):
-Apply and verify:
 
-kubectl apply -f busybox-pod.yaml
-kubectl get pods
-kubectl logs busybox-pod
+<img width="868" height="70" alt="Image" src="https://github.com/user-attachments/assets/ced894c5-6a86-4602-b5d3-9989182ce8cc" />
+
+<img width="716" height="89" alt="Image" src="https://github.com/user-attachments/assets/756312c0-d3b5-4752-9e09-f90b043645e9" />
+
+<img width="699" height="41" alt="Image" src="https://github.com/user-attachments/assets/3560e377-b834-4b1d-9981-6e4b1a951252" />
+
 
 
 
